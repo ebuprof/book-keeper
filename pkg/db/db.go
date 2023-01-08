@@ -36,14 +36,8 @@ func Init() *gorm.DB {
 	db.AutoMigrate((&models.Person{}))
 
 	// seed in data if not yet in the db
-	db.Create(&models.PersonData)
-	if result := db.Find(&person, 1); result.Error == nil {
-		//log.Fatal(result.Error)
-		db.Create(&models.PersonData)
-	}
-	/*if result := db.Find(&book, 1); result.Error == nil {
-		db.Create(&book)
-	}*/
+	///db.Create(&models.PersonData)
+	///db.Create(&book)
 
 	return db
 }
