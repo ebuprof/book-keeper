@@ -33,7 +33,8 @@ func Init() *gorm.DB {
 	}
 
 	db.AutoMigrate(&models.Book{})
-	db.AutoMigrate((&models.Person{}))
+	db.AutoMigrate(&models.Person{})
+	db.AutoMigrate(&models.User{})
 
 	// seed in data if not yet in the db
 	///db.Create(&models.PersonData)
