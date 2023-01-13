@@ -28,6 +28,7 @@ func (h handler) Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	user.ID = util.NewUUID()
 	user.Password = hashPassword
 
 	if result := h.DB.Create(&user); result.Error != nil {
