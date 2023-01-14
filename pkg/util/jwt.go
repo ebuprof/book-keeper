@@ -4,13 +4,14 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/book_keeper_go/pkg/models"
 	"github.com/dgrijalva/jwt-go"
 )
 
-var SecretKey = []byte("secret_key")
+var SecretKey = []byte(os.Getenv("JWT-SECRET"))
 
 // this function is not in use
 func GenerateToken(claims jwt.MapClaims) (string, error) {

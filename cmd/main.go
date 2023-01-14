@@ -6,6 +6,7 @@ import (
 
 	"github.com/book_keeper_go/pkg/db"
 	"github.com/book_keeper_go/pkg/handlers"
+	"github.com/book_keeper_go/pkg/util"
 	"github.com/gorilla/mux"
 )
 
@@ -27,6 +28,7 @@ func main() {
 	router.HandleFunc("/people/{id}", h.GetPerson).Methods(http.MethodGet)
 	router.HandleFunc("/register", h.Register).Methods(http.MethodPost)
 	router.HandleFunc("/login", h.Login).Methods(http.MethodPost)
+	router.HandleFunc("/profile", util.ValidateTokenMiddleware(h.GetProfile)).Methods(http.MethodPost)
 
 	log.Println("API is running")
 	http.ListenAndServe(":9080", router)
