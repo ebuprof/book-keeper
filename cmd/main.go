@@ -26,6 +26,7 @@ func main() {
 	router.HandleFunc("/people", h.GetPeople).Methods(http.MethodGet)
 	router.HandleFunc("/people/{id}", h.GetPerson).Methods(http.MethodGet)
 	router.HandleFunc("/register", h.Register).Methods(http.MethodPost)
+	router.HandleFunc("/login", h.Login).Methods(http.MethodPost)
 
 	log.Println("API is running")
 	http.ListenAndServe(":9080", router)
